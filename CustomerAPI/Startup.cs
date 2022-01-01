@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CustomerAPI.Core.Interfaces;
+using CustomerAPI.Core;
+using CustomerAPI.Dal.Interfaces;
 
 namespace CustomerAPI
 {
@@ -28,6 +31,10 @@ namespace CustomerAPI
             services.AddRazorPages();
 
             services.AddDbContext<DbApiContext>(opt => opt.UseInMemoryDatabase("MemoryDb"));
+
+            services.AddScoped<ITransactionDal, TransactionDal>();
+            services.AddScoped<IAccountDal, AccountDal>();
+            services.AddScoped<IAccountService, AccountService>();
 
         
         }
@@ -59,7 +66,7 @@ namespace CustomerAPI
             });
 
            
-            //SeedDatabase(app);
+           // SeedDatabase(app);
         }
 
 
@@ -74,7 +81,6 @@ namespace CustomerAPI
 
                 var testUser1 = new CustomerAPI.Entities.User
                 {
-                    //Id = 1,
                     FirstName = "zeyad",
                     SureName = "abdelwahab"
                 };
@@ -83,28 +89,31 @@ namespace CustomerAPI
 
                 var testAccount1 = new CustomerAPI.Entities.Account
                 {
-                   // Id = 1,
-                    UserId = testUser1.UserId,
-                    FirstName = "zeyad",
-                    SureName = "abdelwahab",
+                    User = testUser1,
+                    //UserId = testUser1.UserId,                
                     Balance = 1
+                };
+                var testAccount2 = new CustomerAPI.Entities.Account
+                {
+                   User = testUser1,
+                    Balance = 2
                 };
 
                 context.Accounts.Add(testAccount1);
+                context.Accounts.Add(testAccount2);
+
 
                 context.SaveChanges();
 
                 var transaction1 = new CustomerAPI.Entities.Transaction
                 {
-                    //Id = 1,
                     TransactionType = Entities.TransactionType.CheckBalance,
                     Account = testAccount1
                 };
                 var transaction2 = new CustomerAPI.Entities.Transaction
                 {
-                   // Id = 2,
                     TransactionType = Entities.TransactionType.Deposit,
-                    Account = testAccount1
+                    Account = testAccount2
                 };
                 context.Transactions.Add(transaction1);
                 context.Transactions.Add(transaction2);

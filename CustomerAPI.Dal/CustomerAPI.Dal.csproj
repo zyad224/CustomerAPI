@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomerAPI.Entities\CustomerAPI.Entities.csproj" />
+    <ProjectReference Include="..\CustomerAPI.Models\CustomerAPI.Models.csproj" />
   </ItemGroup>
 
 </Project>

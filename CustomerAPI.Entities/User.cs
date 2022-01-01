@@ -13,6 +13,6 @@ namespace CustomerAPI.Entities
         public string UserId { get; set; } = UUIDGenerator.GetNewUUID();
         public string FirstName { get; set; }
         public string SureName { get; set; }
-        public Account Account { get; set; }
+        public List<Account> Accounts { get; set; } = new List<Account>();
     }
 }

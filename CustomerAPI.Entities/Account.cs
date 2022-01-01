@@ -14,10 +14,8 @@ namespace CustomerAPI.Entities
         public string AccountId { get; set; } = UUIDGenerator.GetNewUUID();
         [ForeignKey("UserId")]
         public string UserId { get; set; }
-        public string FirstName { get; set; }
-        public string SureName { get; set; }
-        public decimal Balance { get; set; }
+        public decimal Balance { get; set; } = 0;
         public User User { get; set; }
-        public List<Transaction> Transactions { get; set; }
+        public List<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }

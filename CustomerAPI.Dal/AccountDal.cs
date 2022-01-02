@@ -31,30 +31,7 @@ namespace CustomerAPI.Dal
             return await _transactionDal.OpenNewAccountExistingUserTransaction(transactionModel);
         }
 
-        public async Task<List<UserInfoReturnModel>> UserInfo(UserInfoModel userInfoModel)
-        {
-
-            return await _dbContext.Accounts.Where(account => account.User.UserId == userInfoModel.CustomerId)
-                   .Include(account => account.Transactions)
-                   .Include(account => account.User)
-                   .Select(account => new UserInfoReturnModel()
-                    {
-                       CustomerId = account.User.UserId,
-                       AccountId = account.AccountId,
-                       FirstName = account.User.FirstName,
-                       SureName = account.User.SureName,
-                       Balance = account.Balance,
-                       Transactions = account.Transactions.Select(accountTransactions => new TransactionReturnModel()
-                       {
-                           TransactionId =  accountTransactions.TransactionId,
-                           TransactionType = accountTransactions.TransactionType
-                       }).ToList()
-
-                    })
-                   .ToListAsync();
-
-        }
-
+ 
         private async Task<User> GetUser(string UserId)
         {
             return await _dbContext

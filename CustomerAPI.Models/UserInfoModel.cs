@@ -8,5 +8,7 @@ namespace CustomerAPI.Models
     {
         public string CustomerId { get; set; }
         public string InitialCredit { get; set; }
+        public string FirstName { get; set; }
+        public string SureName { get; set; }
     }
 }

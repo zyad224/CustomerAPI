@@ -9,6 +9,5 @@ namespace CustomerAPI.Dal.Interfaces
     public interface IAccountDal
     {
         public Task<bool> OpenNewAccountExistingUser(UserInfoModel userInfoModel);
-        public Task<List<UserInfoReturnModel>> UserInfo(UserInfoModel userInfoModel);
     }
 }

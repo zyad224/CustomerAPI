@@ -32,9 +32,12 @@ namespace CustomerAPI
 
             services.AddDbContext<DbApiContext>(opt => opt.UseInMemoryDatabase("MemoryDb"));
 
+            
             services.AddScoped<ITransactionDal, TransactionDal>();
             services.AddScoped<IAccountDal, AccountDal>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IUserDal, UserDal>();
+            services.AddScoped<IUserService, UserService>();
 
         
         }

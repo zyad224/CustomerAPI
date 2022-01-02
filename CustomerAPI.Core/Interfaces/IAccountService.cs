@@ -9,6 +9,5 @@ namespace CustomerAPI.Core.Interfaces
     public interface IAccountService
     {
         public Task<bool> OpenNewAccountExistingUser(UserInfoModel userInfoModel);
-        public Task<List<UserInfoReturnModel>> UserInfo(UserInfoModel userInfoModel);
     }
 }

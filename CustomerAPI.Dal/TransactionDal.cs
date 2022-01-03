@@ -22,7 +22,7 @@ namespace CustomerAPI.Dal
         public async Task<bool> OpenNewAccountExistingUserTransaction(TransactionModel transactionModel)
         {
             var userAccount = new Account() { UserId = transactionModel.CustomerId };
-            
+         
             if(GetTransactionTypeByAmount(transactionModel.Amount)!=TransactionType.NoTransaction)
             {
                 var accountTransaction = new Transaction() { Account = userAccount };
@@ -80,6 +80,10 @@ namespace CustomerAPI.Dal
             TransactionReturnModel transactionReturnModel = new TransactionReturnModel();
             Transaction accountTransaction = new Transaction();
 
+            if (userAccount.Balance <= 0)
+                return transactionReturnModel;
+
+            
             if (userAccount != null)
             {
                 accountTransaction.Account = userAccount;

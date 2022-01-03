@@ -9,6 +9,9 @@ namespace CustomerAPI.Dal.Interfaces
     public interface ITransactionDal
     {
         public Task<bool> OpenNewAccountExistingUserTransaction(TransactionModel transactionModel);
+        public Task<TransactionReturnModel> DepositTransaction(TransactionModel transactionModel);
+        public Task<TransactionReturnModel> WithDrawTransaction(TransactionModel transactionModel);
+        public Task<TransactionReturnModel> CheckBalanceTransaction(TransactionModel transactionModel);
 
     }
 }

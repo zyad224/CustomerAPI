@@ -7,8 +7,8 @@ namespace CustomerAPI.Models
 {
     public class TransactionModel
     {
-        public string UserId { get; set; }
+        public string CustomerId { get; set; }
         public string AccountId { get; set; }
-        public string Amount { get; set; }
+        public decimal Amount { get; set; }
     }
 }

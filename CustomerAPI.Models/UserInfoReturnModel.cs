@@ -8,11 +8,11 @@ namespace CustomerAPI.Models
     public class UserInfoReturnModel
     {
         public string CustomerId { get; set; }
-        public string AccountId { get; set; }
         public string FirstName { get; set; }
         public string SureName { get; set; }
-        public decimal Balance { get; set; }
-        public List<TransactionReturnModel> Transactions { get; set; } = new List<TransactionReturnModel>();
+        public DateTime CreateOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
+        public List<AccountReturnModel> Accounts = new List<AccountReturnModel>();
 
     }
 }

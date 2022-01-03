@@ -9,5 +9,7 @@ namespace CustomerAPI.Models
     {
         public string TransactionId { get; set; }
         public TransactionType TransactionType { get; set; }
+        public DateTime CreateOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
     }
 }

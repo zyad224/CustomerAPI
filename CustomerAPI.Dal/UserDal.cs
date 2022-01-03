@@ -12,7 +12,7 @@ namespace CustomerAPI.Dal
 {
     public class UserDal : IUserDal
     {
-        private readonly DbApiContext _dbContext;
+        private DbApiContext _dbContext;
 
         public UserDal(DbApiContext dbApiContext)
         {
@@ -23,31 +23,46 @@ namespace CustomerAPI.Dal
             var user = new User { FirstName = userInfoModel.FirstName, SureName = userInfoModel.SureName };
 
             await _dbContext.Users.AddAsync(user);
+            await _dbContext.SaveChangesAsync();
 
-            return new UserInfoReturnModel() { CustomerId = user.UserId, FirstName = user.FirstName, SureName = user.SureName };
+            return new UserInfoReturnModel() { CustomerId = user.UserId, FirstName = user.FirstName, SureName = user.SureName, CreateOn = user.CreateOn, ModifiedOn = user.ModifiedOn };
 
         }
 
-        public async Task<List<UserInfoReturnModel>> UserInfo(UserInfoModel userInfoModel)
+        public async Task<UserInfoReturnModel> UserInfo(UserInfoModel userInfoModel)
         {
-            return await _dbContext.Accounts.Where(account => account.User.UserId == userInfoModel.CustomerId)
-                  .Include(account => account.Transactions)
-                  .Include(account => account.User)
-                  .Select(account => new UserInfoReturnModel()
-                  {
-                      CustomerId = account.User.UserId,
-                      AccountId = account.AccountId,
-                      FirstName = account.User.FirstName,
-                      SureName = account.User.SureName,
-                      Balance = account.Balance,
-                      Transactions = account.Transactions.Select(accountTransactions => new TransactionReturnModel()
-                      {
-                          TransactionId = accountTransactions.TransactionId,
-                          TransactionType = accountTransactions.TransactionType
-                      }).ToList()
+          
+            return await _dbContext.Users
+                           .Include(user => user.Accounts)
+                           .ThenInclude(account => account.Transactions)
+                           .Where(user => user.UserId == userInfoModel.CustomerId)
+                           .Select(model => new UserInfoReturnModel()
+                           {
+                               CustomerId = model.UserId,
+                               FirstName = model.FirstName,
+                               SureName = model.SureName,
+                               CreateOn = model.CreateOn,
+                               ModifiedOn = model.ModifiedOn,
+                               Accounts = model.Accounts.Select(account => new AccountReturnModel()
+                               {
+                                   AccountId = account.AccountId,
+                                   UserId = account.User.UserId,
+                                   Balance = account.Balance,
+                                   CreateOn = account.CreateOn,
+                                   ModifiedOn = account.ModifiedOn,
+                                   Transactions = account.Transactions.Select(transaction => new TransactionReturnModel()
+                                   {
+                                       TransactionId = transaction.TransactionId,
+                                       TransactionType = transaction.TransactionType,
+                                       CreateOn = transaction.CreateOn,
+                                       ModifiedOn = transaction.ModifiedOn
 
-                  })
-                  .ToListAsync();
+                                   }).ToList()
+
+                               }).ToList()
+                              
+                           }).FirstOrDefaultAsync();
+        
         }
     }
 }

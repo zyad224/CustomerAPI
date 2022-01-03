@@ -27,7 +27,7 @@ namespace CustomerAPI.Dal
             if (userDb == null)
                 return false;
 
-            TransactionModel transactionModel = new TransactionModel() { UserId = userDb.UserId, Amount = userInfoModel.InitialCredit };
+            TransactionModel transactionModel = new TransactionModel() { CustomerId = userDb.UserId, Amount = userInfoModel.InitialCredit };
             return await _transactionDal.OpenNewAccountExistingUserTransaction(transactionModel);
         }
 

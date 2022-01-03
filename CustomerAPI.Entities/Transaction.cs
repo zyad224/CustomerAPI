@@ -21,9 +21,9 @@ namespace CustomerAPI.Entities
 
    public enum TransactionType
     {
-        CheckBalance = 0,
-        Deposit = 1,
-        Withdraw = 2
-
+        NoTransaction = 0,
+        CheckBalance = 1,
+        Deposit = 2,
+        Withdraw = 3,
     }
 }

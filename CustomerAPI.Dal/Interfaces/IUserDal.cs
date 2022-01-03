@@ -9,7 +9,7 @@ namespace CustomerAPI.Dal.Interfaces
     public interface IUserDal
     {
         public Task<UserInfoReturnModel> AddUser(UserInfoModel userInfoModel);
-        public Task<List<UserInfoReturnModel>> UserInfo(UserInfoModel userInfoModel);
+        public Task<UserInfoReturnModel> UserInfo(UserInfoModel userInfoModel);
 
     }
 }

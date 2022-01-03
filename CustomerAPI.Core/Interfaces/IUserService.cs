@@ -9,6 +9,6 @@ namespace CustomerAPI.Core.Interfaces
     public interface IUserService
     {
         public Task<UserInfoReturnModel> AddUser(UserInfoModel userInfoModel);
-        public Task<List<UserInfoReturnModel>> UserInfo(UserInfoModel userInfoModel);
+        public Task<UserInfoReturnModel> UserInfo(UserInfoModel userInfoModel);
     }
 }

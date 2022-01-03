@@ -31,15 +31,19 @@ namespace CustomerAPI
             services.AddRazorPages();
 
             services.AddDbContext<DbApiContext>(opt => opt.UseInMemoryDatabase("MemoryDb"));
+            services.AddControllers();
 
-            
+            services.AddScoped<IDbApiContext>(provider => (IDbApiContext)provider.GetService(typeof(DbApiContext)));
+
             services.AddScoped<ITransactionDal, TransactionDal>();
+            services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IAccountDal, AccountDal>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IUserDal, UserDal>();
             services.AddScoped<IUserService, UserService>();
 
-        
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,10 +69,10 @@ namespace CustomerAPI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
 
-           
+            app.UseWelcomePage();
            // SeedDatabase(app);
         }
 

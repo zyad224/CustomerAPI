@@ -21,7 +21,7 @@ namespace CustomerAPI.Core
             return await _userDal.AddUser(userInfoModel);
         }
 
-        public async Task<List<UserInfoReturnModel>> UserInfo(UserInfoModel userInfoModel)
+        public async Task<UserInfoReturnModel> UserInfo(UserInfoModel userInfoModel)
         {
             return await _userDal.UserInfo(userInfoModel);
         }

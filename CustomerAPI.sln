@@ -3,19 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI", "CustomerAPI\CustomerAPI.csproj", "{EB00D4E8-7A6C-43BE-8F10-D5991224253B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI", "CustomerAPI\CustomerAPI.csproj", "{EB00D4E8-7A6C-43BE-8F10-D5991224253B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI.Common", "CustomerAPI.Common\CustomerAPI.Common.csproj", "{4EB9A41D-0188-463A-A2F9-1A044AB8DD4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI.Common", "CustomerAPI.Common\CustomerAPI.Common.csproj", "{4EB9A41D-0188-463A-A2F9-1A044AB8DD4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI.Utilities", "CustomerAPI.Utilities\CustomerAPI.Utilities.csproj", "{2791DE1D-05D5-4489-8A88-DEE763282D2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI.Utilities", "CustomerAPI.Utilities\CustomerAPI.Utilities.csproj", "{2791DE1D-05D5-4489-8A88-DEE763282D2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI.Core", "CustomerAPI.Core\CustomerAPI.Core.csproj", "{9900BE1E-320C-4392-B3A8-7AE16E7E83B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI.Core", "CustomerAPI.Core\CustomerAPI.Core.csproj", "{9900BE1E-320C-4392-B3A8-7AE16E7E83B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI.Dal", "CustomerAPI.Dal\CustomerAPI.Dal.csproj", "{EF17047E-32AA-4DB4-A878-F6C65AF296F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI.Dal", "CustomerAPI.Dal\CustomerAPI.Dal.csproj", "{EF17047E-32AA-4DB4-A878-F6C65AF296F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI.Models", "CustomerAPI.Models\CustomerAPI.Models.csproj", "{691D1ACF-AA29-486E-864F-DD685848F695}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI.Models", "CustomerAPI.Models\CustomerAPI.Models.csproj", "{691D1ACF-AA29-486E-864F-DD685848F695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI.Entities", "CustomerAPI.Entities\CustomerAPI.Entities.csproj", "{F32874B1-42D2-4FAC-94AF-7CE92DA3F379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI.Entities", "CustomerAPI.Entities\CustomerAPI.Entities.csproj", "{F32874B1-42D2-4FAC-94AF-7CE92DA3F379}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerAPI.UnitTests", "CustomerAPI.UnitTests\CustomerAPI.UnitTests.csproj", "{433F5834-176B-48F1-89D5-EBB945BD2C19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAPI.IntegrationTests", "CustomerAPI.IntegrationTests\CustomerAPI.IntegrationTests.csproj", "{7B2C7F2F-BE85-4175-9887-E586DE451BF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{F32874B1-42D2-4FAC-94AF-7CE92DA3F379}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F32874B1-42D2-4FAC-94AF-7CE92DA3F379}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F32874B1-42D2-4FAC-94AF-7CE92DA3F379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{433F5834-176B-48F1-89D5-EBB945BD2C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433F5834-176B-48F1-89D5-EBB945BD2C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{433F5834-176B-48F1-89D5-EBB945BD2C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433F5834-176B-48F1-89D5-EBB945BD2C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2C7F2F-BE85-4175-9887-E586DE451BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2C7F2F-BE85-4175-9887-E586DE451BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2C7F2F-BE85-4175-9887-E586DE451BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2C7F2F-BE85-4175-9887-E586DE451BF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

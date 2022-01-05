@@ -80,6 +80,9 @@ namespace CustomerAPI.Dal
             TransactionReturnModel transactionReturnModel = new TransactionReturnModel();
             Transaction accountTransaction = new Transaction();
 
+            if (userAccount == null)
+                return transactionReturnModel;
+
             if (userAccount.Balance <= 0)
                 return transactionReturnModel;
 

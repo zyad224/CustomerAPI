@@ -73,65 +73,7 @@ namespace CustomerAPI
             });
 
             app.UseWelcomePage();
-           // SeedDatabase(app);
         }
-
-
-        public static void SeedDatabase(IApplicationBuilder app)
-        {
-
-            using (var serviceScope = app.ApplicationServices.CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetService<DbApiContext>();
-
-                // Seed the database.
-
-                var testUser1 = new CustomerAPI.Entities.User
-                {
-                    FirstName = "zeyad",
-                    SureName = "abdelwahab"
-                };
-
-                context.Users.Add(testUser1);
-
-                var testAccount1 = new CustomerAPI.Entities.Account
-                {
-                    User = testUser1,
-                    //UserId = testUser1.UserId,                
-                    Balance = 1
-                };
-                var testAccount2 = new CustomerAPI.Entities.Account
-                {
-                   User = testUser1,
-                    Balance = 2
-                };
-
-                context.Accounts.Add(testAccount1);
-                context.Accounts.Add(testAccount2);
-
-
-                context.SaveChanges();
-
-                var transaction1 = new CustomerAPI.Entities.Transaction
-                {
-                    TransactionType = Entities.TransactionType.CheckBalance,
-                    Account = testAccount1
-                };
-                var transaction2 = new CustomerAPI.Entities.Transaction
-                {
-                    TransactionType = Entities.TransactionType.Deposit,
-                    Account = testAccount2
-                };
-                context.Transactions.Add(transaction1);
-                context.Transactions.Add(transaction2);
-                context.SaveChanges();
-
-                var users = context.Accounts
-                    .Include(u => u.Transactions)
-                    .Include(u => u.User)
-                    .ToList();
-            }
-
-        }
+      
     }
 }

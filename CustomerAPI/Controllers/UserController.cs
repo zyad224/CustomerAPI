@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace CustomerAPI.Controllers
 {
 
-    [Route("User/")]
+    [Route("api/User/")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -45,11 +45,11 @@ namespace CustomerAPI.Controllers
                 return BadRequest("Null CustomerId");
 
             var userInfoReturnModel = await _userService.UserInfo(userInfoModel);
-            var userInfoReturnModelJson = JsonConvert.SerializeObject(userInfoReturnModel);
 
             if (userInfoReturnModel == null)
-                return BadRequest("No Such Customer Exists");
+                return NotFound("No Such Customer Exists");
 
+            var userInfoReturnModelJson = JsonConvert.SerializeObject(userInfoReturnModel);
             return Ok(userInfoReturnModelJson);
         }
 

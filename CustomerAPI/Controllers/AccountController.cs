@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CustomerAPI.Controllers
 {
-    [Route("Account/")]
+    [Route("api/Account/")]
     [ApiController]
     public class AccountController : ControllerBase
     {

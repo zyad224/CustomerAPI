@@ -15,7 +15,9 @@ namespace CustomerAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
         private IUserService _userService;
 
         public UserController(IUserService userService)

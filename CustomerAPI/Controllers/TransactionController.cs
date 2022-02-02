@@ -34,7 +34,7 @@ namespace CustomerAPI.Controllers
             var transactionReturnModelJson = JsonConvert.SerializeObject(transactionReturnModel);
             return Ok(transactionReturnModelJson);
         }
-
+        
         [HttpPost]
         [Route("Withdraw")]
         public async Task<ActionResult<string>> Withdraw([FromBody] TransactionModel transactionModel)

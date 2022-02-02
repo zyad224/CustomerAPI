@@ -25,7 +25,7 @@ namespace CustomerAPI.Controllers
             _userService = userService;
         }
 
-       
+          
         [HttpPost]
         [Route("AddUser")]
         public async Task<ActionResult<string>>AddUser([FromBody]UserInfoModel userInfoModel)

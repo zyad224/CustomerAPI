@@ -2,8 +2,6 @@
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: '**/*Test/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 

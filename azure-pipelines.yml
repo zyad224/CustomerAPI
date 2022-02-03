@@ -32,7 +32,7 @@ stages:
     - task: DotNetCoreCLI@2
       inputs:
         command: 'test'
-        projects: '**/*Test/*.csproj'
+        projects: '**/*Tests/*.csproj'
         arguments: '--configuration $(buildConfiguration)'
         testRunTitle: 'UnitTests'
     - task: Docker@2
